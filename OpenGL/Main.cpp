@@ -80,8 +80,6 @@ int main()
 	//main while loop
 	while (!glfwWindowShouldClose(window))
 	{
-		//handle events
-		glfwPollEvents();
 		// specify background color
 		glClearColor(0.31f, 0.10f, 0.19f, 1.0f);
 		// clear back buffer 
@@ -97,7 +95,7 @@ int main()
 		glDrawElements(GL_TRIANGLES, 9, GL_UNSIGNED_INT, 0);
 		// Swap the back buffer with the front buffer
 		glfwSwapBuffers(window);
-		// Take care of all GLFW events
+		// handle ecebts
 		glfwPollEvents();
 	}
 
