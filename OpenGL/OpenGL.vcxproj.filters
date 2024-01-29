@@ -75,7 +75,7 @@
     <Image Include="globe.jpg">
       <Filter>Resource Files\Textures</Filter>
     </Image>
-    <Image Include="..\..\..\..\Downloads\brick.png">
+    <Image Include="brick.png">
       <Filter>Resource Files\Textures</Filter>
     </Image>
   </ItemGroup>
