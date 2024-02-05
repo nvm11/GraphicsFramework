@@ -8,17 +8,12 @@ out vec3 color;
 //outputs texture coords to frag shader
 out vec2 texCoord;
 
-//controls scale of vertices
-uniform float scale;
-
-uniform mat4 model;
-uniform mat4 view;
-uniform mat4 proj;
+uniform mat4 camMatrix;
 
 void main()
 {
 // Outputs the positions/coordinates of all vertices
-gl_Position = proj * view * model * vec4(aPos, 1.0);
+gl_Position = camMatrix * vec4(aPos, 1.0f);
 //assigns the colors from the Vertex Data to "color"
 color = aColor;
 //assigns the texture coordinates from the Vertex Data to "texCoord"
