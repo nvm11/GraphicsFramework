@@ -164,6 +164,8 @@ int main()
 	lightVBO.Unbind();
 	lightEBO.Unbind();
 
+	glm::vec4 lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+
 	glm::vec3 lightPos = glm::vec3(0.5f, 0.5f, 0.5f);
 	glm::mat4 lightModel = glm::mat4(1.0f);
 	lightModel = glm::translate(lightModel, lightPos);
@@ -174,9 +176,12 @@ int main()
 
 	lightShader.Activate();
 	glUniformMatrix4fv(glGetUniformLocation(lightShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(lightModel));
+	//export to vertices shader
+	glUniform4f(glGetUniformLocation(lightShader.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
 	shaderProgram.Activate();
 	glUniformMatrix4fv(glGetUniformLocation(shaderProgram.ID, "model"), 1, GL_FALSE, glm::value_ptr(pyramidModel));
-
+	//export to fragment shader
+	glUniform4f(glGetUniformLocation(shaderProgram.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
 
 	//texture
 	Texture globe("brick.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
@@ -195,12 +200,13 @@ int main()
 		// clear back buffer 
 		// and assign the new color
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		// tell OpenGL which shader
-		// program we want to use
-		shaderProgram.Activate();
 
 		camera.Inputs(window);
 		camera.updateMatrix(45.0f, 0.1f, 100.0f);
+
+		// tell OpenGL which shader
+		// program we want to use
+		shaderProgram.Activate();
 
 		camera.Matrix(shaderProgram, "camMatrix");
 
@@ -212,6 +218,13 @@ int main()
 		// datatype of indices, index of indices
 		//9 for triforce, 6 for square
 		glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(int), GL_UNSIGNED_INT, 0);
+			
+		lightShader.Activate();
+		camera.Matrix(lightShader, "camMatrix");
+		lightVAO.Bind();
+		glDrawElements(GL_TRIANGLES, sizeof(lightIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+
+		
 		// Swap the back buffer with the front buffer
 		glfwSwapBuffers(window);
 		// handle ecebts
