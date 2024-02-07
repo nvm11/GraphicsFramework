@@ -8,13 +8,8 @@
 #include<glm/gtc/type_ptr.hpp>
 #include<glm/gtx/rotate_vector.hpp>
 #include<glm/gtx/vector_angle.hpp>
-#include<iostream>
-#include<chrono>
 
 #include"shaderClass.h"
-
-using namespace std;
-using namespace std::chrono;
 
 
 class Camera
