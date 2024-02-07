@@ -17,7 +17,7 @@ uniform mat4 model;
 
 void main()
 {
-	crntPost = vec3(model * vec4(aPos, 1.0f));
+	crntPos = vec3(model * vec4(aPos, 1.0f));
 
 	// Outputs the positions/coordinates of all vertices
 	gl_Position = camMatrix * vec4(crntPos, 1.0f);

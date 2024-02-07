@@ -28,7 +28,7 @@ void main()
 
 	float specularLight = 0.50f;
 	vec3 viewDirection = normalize(camPos - crntPos);
-	vec3 reflection Direction = reflect(-lightDirection, normal);
+	vec3 reflectionDirection = reflect(-lightDirection, normal);
 	float specAmount = pow(max(dot(viewDirection, reflectionDirection), 0.0f), 8);
 	float specular = specAmount * specularLight;
 
