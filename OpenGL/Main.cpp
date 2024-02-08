@@ -18,7 +18,6 @@ const unsigned int height = 800;
 
 //use gl float as float may differ in size
 // Vertices coordinates
-// Vertices coordinates
 GLfloat vertices[] =
 { //     COORDINATES     /        COLORS          /    TexCoord   /        NORMALS       //
 	-0.5f, 0.0f,  0.5f,     0.83f, 0.70f, 0.44f, 	 0.0f, 0.0f,      0.0f, -1.0f, 0.0f, // Bottom side
@@ -153,7 +152,6 @@ int main()
 	lightEBO.Unbind();
 
 	glm::vec4 lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-
 	glm::vec3 lightPos = glm::vec3(0.5f, 0.5f, 0.5f);
 	glm::mat4 lightModel = glm::mat4(1.0f);
 	lightModel = glm::translate(lightModel, lightPos);
@@ -173,8 +171,8 @@ int main()
 	glUniform3f(glGetUniformLocation(shaderProgram.ID, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
 
 	//texture
-	Texture globe("brick.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
-	globe.texUnit(shaderProgram, "tex0", 0);
+	Texture brickTexture("brick.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+	brickTexture.texUnit(shaderProgram, "tex0", 0);
 
 	//enable the depth buffer
 	glEnable(GL_DEPTH_TEST);
@@ -200,7 +198,7 @@ int main()
 		camera.Matrix(shaderProgram, "camMatrix");
 
 
-		globe.Bind();
+		brickTexture.Bind();
 		// bind the VAO so OpenGL knows to use it
 		VAO1.Bind();
 		// draw primitives, number of indices, 
@@ -222,10 +220,16 @@ int main()
 
 	// delete all objects created
 	VAO1.Delete();
+	// Delete all the objects we've created
+	VAO1.Delete();
 	VBO1.Delete();
 	EBO1.Delete();
-	globe.Delete();
+	brickTexture.Delete();
 	shaderProgram.Delete();
+	lightVAO.Delete();
+	lightVBO.Delete();
+	lightEBO.Delete();
+	lightShader.Delete();
 	// delete window before ending program
 	glfwDestroyWindow(window);
 	// terminate GLFW before ending program
