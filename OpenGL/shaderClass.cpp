@@ -1,6 +1,7 @@
 #include"shaderClass.h"
 
-// Reads a text file and outputs a string with everything in the text file
+//reads a text file and outputs a string with everything in the text file
+//(serialization)
 std::string get_file_contents(const char* filename)
 {
 	std::ifstream in(filename, std::ios::binary);
@@ -17,24 +18,45 @@ std::string get_file_contents(const char* filename)
 	throw(errno);
 }
 
+/// <summary>
+/// creates a shader program with the specified shaders
+/// </summary>
+/// <param name="vertexFile">vertex shader</param>
+/// <param name="fragmentFile">fragment shader</param>
 Shader::Shader(const char* vertexFile, const char* fragmentFile)
 {
+	//read files and store as strings
 	std::string vertexCode = get_file_contents(vertexFile);
 	std::string fragmentCode = get_file_contents(fragmentFile);
 
+	//convert shader strings into arrays
 	const char* vertexSource = vertexCode.c_str();
 	const char* fragmentSource = fragmentCode.c_str();
 
+	//create vertex shader object
+	//obtain its reference
 	GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
+	//attach vertex shader to vert shader obj
 	glShaderSource(vertexShader, 1, &vertexSource, NULL);
+	//compile into machine code
 	glCompileShader(vertexShader);
+	//check for successful compilation
+	compileErrors(vertexShader, "VERTEX");
 
+	//create fragment shader obj
+	//get its reference
 	GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+	//attach frag shader source to frag shader obj
 	glShaderSource(fragmentShader, 1, &fragmentSource, NULL);
+	//compile into machine code
 	glCompileShader(fragmentShader);
+	//check for successful compilation
+	compileErrors(fragmentShader, "FRAGMENT");
 
+	//create program and obtain a reference to it
 	ID = glCreateProgram();
 
+	//attach vertex and fragment shaders to the program
 	glAttachShader(ID, vertexShader);
 	glAttachShader(ID, fragmentShader);
 	//link shaders together
@@ -45,19 +67,32 @@ Shader::Shader(const char* vertexFile, const char* fragmentFile)
 	glDeleteShader(fragmentShader);
 }
 
+/// <summary>
+/// acivates shader program
+/// </summary>
 void Shader::Activate()
 {
 	glUseProgram(ID);
 }
 
+/// <summary>
+/// deletes shader program
+/// </summary>
 void Shader::Delete()
 {
 	glDeleteProgram(ID);
 }
 
+/// <summary>
+/// checks if shader program has already compiled
+/// </summary>
+/// <param name="shader">shader program to check</param>
+/// <param name="type">type of program (vertex, frag, shader)</param>
 void Shader::compileErrors(unsigned int shader, const char* type)
 {
+	//stores compilation status
 	GLint hasCompiled;
+	//error message array
 	char infoLog[1024];
 	if (type != "PROGRAM")
 	{
