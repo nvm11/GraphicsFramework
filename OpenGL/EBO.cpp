@@ -1,5 +1,8 @@
 #include"EBO.h"
 
+//EBO (element buffer obj) stores indices that reference vertices in the VBO
+//allows for reusing vertices
+
 // Constructor that generates a Elements Buffer Object and links it to indices
 EBO::EBO(GLuint* indices, GLsizeiptr size)
 {
