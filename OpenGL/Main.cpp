@@ -18,34 +18,9 @@ const unsigned int height = 800;
 
 //use gl float as float may differ in size
 // Vertices coordinates
+// Vertices coordinates
 GLfloat vertices[] =
-{
-	//test triforce for shaders
-	////coordinates										    colors
-	//-0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f,	0.8f, 0.3f, 0.02f,	// Lower left corner
-	//0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f,		0.8f, 0.3f, 0.02f,	// Lower right corner
-	//0.0f, 0.5f * float(sqrt(3)) * 2 / 3, 0.0f,	1.0f, 0.6f, 0.32f,	// Upper corner
-	//-0.5f / 2, 0.5f * float(sqrt(3)) / 6, 0.0f,	0.9f, 0.45f, 0.17f,	// Inner left
-	//0.5f / 2, 0.5f * float(sqrt(3)) / 6, 0.0f,	0.9f, 0.45f, 0.17f,	// Inner right
-	//0.0f, -0.5f * float(sqrt(3)) / 3, 0.0f,		0.8f, 0.3f, 0.02f	// Inner down
-
-	////square for textures
-	////coords				//colors			
-	//-0.5f, -0.5f, 0.0f,		1.0f, 0.0f, 0.0f,	0.0f, 0.0f, //lower left corner
-	//-0.5f,  0.5f, 0.0f,		0.0f, 1.0f, 0.0f,	0.0f, 1.0f, //upper left corner
-	// 0.5f,  0.5f, 0.0f,		0.0f, 0.0f, 1.0f,	1.0f, 1.0f, //upper right corner
-	// 0.5f, -0.5f, 0.0f,		1.0f, 1.0f, 1.0f,	1.0f, 0.0f, //lower right corner
-
-	////prism
-	////coords				//colors				//text coord	
-	//-0.5f, 0.0f,  0.5f,     0.83f, 0.70f, 0.44f,	0.0f, 0.0f,
-	//-0.5f, 0.0f, -0.5f,     0.83f, 0.70f, 0.44f,	5.0f, 0.0f,
-	// 0.5f, 0.0f, -0.5f,     0.83f, 0.70f, 0.44f,	0.0f, 0.0f,
-	// 0.5f, 0.0f,  0.5f,     0.83f, 0.70f, 0.44f,	5.0f, 0.0f,
-	// 0.0f, 0.8f,  0.0f,     0.92f, 0.86f, 0.76f,	2.5f, 5.0f
-
-	//prism with normals
-	 //     COORDINATES     /        COLORS          /    TexCoord   /        NORMALS       //
+{ //     COORDINATES     /        COLORS          /    TexCoord   /        NORMALS       //
 	-0.5f, 0.0f,  0.5f,     0.83f, 0.70f, 0.44f, 	 0.0f, 0.0f,      0.0f, -1.0f, 0.0f, // Bottom side
 	-0.5f, 0.0f, -0.5f,     0.83f, 0.70f, 0.44f,	 0.0f, 5.0f,      0.0f, -1.0f, 0.0f, // Bottom side
 	 0.5f, 0.0f, -0.5f,     0.83f, 0.70f, 0.44f,	 5.0f, 5.0f,      0.0f, -1.0f, 0.0f, // Bottom side
@@ -68,27 +43,16 @@ GLfloat vertices[] =
 	 0.0f, 0.8f,  0.0f,     0.92f, 0.86f, 0.76f,	 2.5f, 5.0f,      0.0f, 0.5f,  0.8f  // Facing side
 };
 
+// Indices for vertices order
 GLuint indices[] =
 {
-	//triforce test
-	//0,3,5, //lower left tri
-	//3,2,4, //lower right tri
-	//5,4,1 //upper right tri
-
-	////square test
-	//0,2,1, //upper triangle
-	//0,3,2 //lower triangle
-
-	//prism
-	0,1,2,
-	0,2,3,
-	0,1,4,
-	1,2,4,
-	2,3,4,
-	3,0,4
+	0, 1, 2, // Bottom side
+	0, 2, 3, // Bottom side
+	4, 6, 5, // Left side
+	7, 9, 8, // Non-facing side
+	10, 12, 11, // Right side
+	13, 15, 14 // Facing side
 };
-
-//light source vertices and indices
 
 GLfloat lightVertices[] =
 { //     COORDINATES     //
