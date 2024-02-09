@@ -1,4 +1,7 @@
 #include"VAO.h"
+//Vertex array object
+//simplifies management and configuration of vertex attribute data
+//streamlines the rendering process
 
 // Constructor that generates a VAO ID
 VAO::VAO()

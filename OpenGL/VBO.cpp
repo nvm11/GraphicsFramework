@@ -1,6 +1,6 @@
 #include"VBO.h"
 //vertex buffer object that stores vertex data and 
-// info of geometry of objects to be rendered
+//info of geometry of objects to be rendered
 VBO::VBO(GLfloat* vertices, GLsizeiptr size)
 {
 	glGenBuffers(1, &ID);
