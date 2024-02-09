@@ -6,7 +6,9 @@
 class VBO
 {
 public:
+	//reference id of the vertex buffer obj
 	GLuint ID;
+	//constructor
 	VBO(GLfloat* verticies, GLsizeiptr size);
 
 	//binds the vbo
