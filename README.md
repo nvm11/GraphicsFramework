@@ -1,4 +1,4 @@
-# Graphics Framework Created Through Utilizing [OpenGL](https://www.opengl.org/) and [GLM](https://glm.g-truc.net/0.9.9/)
+# Graphics Framework Created Utilizing [OpenGL](https://www.opengl.org/) and [GLM](https://glm.g-truc.net/0.9.9/)
 
 ## Technologies Used
 * Visual C++
