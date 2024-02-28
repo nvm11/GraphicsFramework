@@ -22,7 +22,7 @@
 
 ## Current Missing Features
 * Model Loading
-* Classes to Make Project Easy for Use
+* Classes to Make Project Simple for Users
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
