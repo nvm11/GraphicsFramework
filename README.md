@@ -1,9 +1,14 @@
-# Graphics Engine Created Through Utilizing [OpenGL]https://www.opengl.org/ and [GLM]https://glm.g-truc.net/0.9.9/
+# Graphics Framework Created Through Utilizing [OpenGL](https://www.opengl.org/) and [GLM](https://glm.g-truc.net/0.9.9/)
+
+#Technologies Used
+*Visual C++
+*OpenGL- Version 3.3.0
+*GLM - Vesrion 0.9.9
 
 #Resources Used
-*[OpenGl Documentation]https://www.opengl.org/Documentation/Specs.html
-*[GLM Documentation]https://glm.g-truc.net/0.9.9/api/index.html
-*[Open GL Crash Course]https://www.youtube.com/watch?v=45MIykWJ-C4
+*[OpenGl Documentation](https://www.opengl.org/Documentation/Specs.html)
+*[GLM Documentation](https://glm.g-truc.net/0.9.9/api/index.html)
+*[Open GL Crash Course](https://www.youtube.com/watch?v=45MIykWJ-C4)
 
 #Current Capabilities
 *Create 2D/3D Objects Through Manual Input of Vertices and Edges
@@ -19,5 +24,4 @@
 *Classes to Make Project Easy for Use
 
 ##License
-[MIT]
-https://choosealicense.com/licenses/mit/
+[MIT](https://choosealicense.com/licenses/mit/)
