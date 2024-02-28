@@ -4,6 +4,7 @@
 * Visual C++
 * C
 * OpenGL- Version 3.3.0
+* Glad - Version 3.3.0
 * GLM - Version 0.9.9
 
 ## Resources Used
