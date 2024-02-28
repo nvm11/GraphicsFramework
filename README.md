@@ -7,7 +7,7 @@
 * GLM - Version 0.9.9
 
 ## Resources Used
-* [OpenGl Documentation](https://www.opengl.org/Documentation/Specs.html)
+* [OpenGL Documentation](https://www.opengl.org/Documentation/Specs.html)
 * [GLM Documentation](https://glm.g-truc.net/0.9.9/api/index.html)
 * [Open GL Crash Course](https://www.youtube.com/watch?v=45MIykWJ-C4)
 
