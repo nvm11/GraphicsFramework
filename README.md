@@ -21,8 +21,8 @@
 * Flat Shading Applied to 3D Objects
 
 ## Current Missing Features
-*Model Loading
-*Classes to Make Project Easy for Use
+* Model Loading
+* Classes to Make Project Easy for Use
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
