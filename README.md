@@ -4,7 +4,7 @@
 * Visual C++
 * C
 * OpenGL- Version 3.3.0
-* GLM - Vesrion 0.9.9
+* GLM - Version 0.9.9
 
 ## Resources Used
 * [OpenGl Documentation](https://www.opengl.org/Documentation/Specs.html)
